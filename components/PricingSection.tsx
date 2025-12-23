@@ -39,70 +39,69 @@ const PricingCard = ({
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className={`relative group bg-[#050505] border shadow-2xl overflow-hidden flex flex-col p-8 lg:p-12 transition-colors duration-500 
-                ${isPopular ? 'border-cyan-500/30 ring-1 ring-cyan-500/10' : 'border-white/10'}`}
+            className={`relative group bg-white/[0.02] border backdrop-blur-3xl shadow-2xl overflow-hidden flex flex-col p-10 lg:p-14 transition-all duration-500 
+                ${isPopular ? 'border-cyan-500/40 ring-1 ring-cyan-500/20 shadow-cyan-500/10' : 'border-white/5 hover:border-white/20'}`}
         >
             {/* Spotlight Effect */}
             <div
                 className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-300"
                 style={{
                     opacity: isHovered ? 1 : 0,
-                    background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, ${isPopular ? 'rgba(34,211,238,0.08)' : 'rgba(255,255,255,0.03)'}, transparent 80%)`
+                    background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, ${isPopular ? 'rgba(34,211,238,0.1)' : 'rgba(255,255,255,0.05)'}, transparent 80%)`
                 }}
             />
 
-            {/* Background Grid */}
-            <div className={`absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)] ${isPopular ? 'opacity-[0.05]' : ''}`} />
-
-            {/* Corner Markers */}
-            <div className={`absolute top-0 left-0 w-2 h-[1px] ${isPopular ? 'bg-cyan-500/50' : 'bg-white/20'}`} />
-            <div className={`absolute top-0 left-0 w-[1px] h-2 ${isPopular ? 'bg-cyan-500/50' : 'bg-white/20'}`} />
-            <div className={`absolute top-0 right-0 w-2 h-[1px] ${isPopular ? 'bg-cyan-500/50' : 'bg-white/20'}`} />
-            <div className={`absolute top-0 right-0 w-[1px] h-2 ${isPopular ? 'bg-cyan-500/50' : 'bg-white/20'}`} />
-            <div className={`absolute bottom-0 left-0 w-2 h-[1px] ${isPopular ? 'bg-cyan-500/50' : 'bg-white/20'}`} />
-            <div className={`absolute bottom-0 left-0 w-[1px] h-2 ${isPopular ? 'bg-cyan-500/50' : 'bg-white/20'}`} />
-            <div className={`absolute bottom-0 right-0 w-2 h-[1px] ${isPopular ? 'bg-cyan-500/50' : 'bg-white/20'}`} />
-            <div className={`absolute bottom-0 right-0 w-[1px] h-2 ${isPopular ? 'bg-cyan-500/50' : 'bg-white/20'}`} />
+            {/* Corner Markers - Only for Popular/Hovered */}
+            <div className={`absolute top-0 left-0 w-4 h-[1px] transition-all duration-700 ${isPopular || isHovered ? 'bg-cyan-500/50' : 'bg-transparent'}`} />
+            <div className={`absolute top-0 left-0 w-[1px] h-4 transition-all duration-700 ${isPopular || isHovered ? 'bg-cyan-500/50' : 'bg-transparent'}`} />
+            <div className={`absolute bottom-0 right-0 w-4 h-[1px] transition-all duration-700 ${isPopular || isHovered ? 'bg-cyan-500/50' : 'bg-transparent'}`} />
+            <div className={`absolute bottom-0 right-0 w-[1px] h-4 transition-all duration-700 ${isPopular || isHovered ? 'bg-cyan-500/50' : 'bg-transparent'}`} />
 
             <div className="relative z-10 flex flex-col h-full">
-                <div className="mb-8">
-                    <div className={`inline-block px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] mb-4 border transition-colors 
-                        ${isPopular ? 'text-cyan-400 border-cyan-500/20 bg-cyan-500/5 shadow-[0_0_15px_rgba(34,211,238,0.1)]' : 'text-white/40 border-white/10'}`}>
+                <div className="mb-10 flex items-center justify-between">
+                    <span className={`text-[11px] font-black uppercase tracking-[0.3em] 
+                        ${isPopular ? 'text-cyan-400' : 'text-white/40'}`}>
                         {title}
-                    </div>
-                </div>
-
-                <div className="mb-10 min-h-[160px] flex items-center justify-center relative">
-                    <div className={`text-6xl lg:text-7xl font-bold tracking-tighter transition-colors ${isHovered && isPopular ? 'text-cyan-400' : 'text-white'}`}>
-                        {price}<span className="text-xl text-white/20 font-light tracking-normal">/mo</span>
-                    </div>
+                    </span>
                     {isPopular && (
-                        <div className="absolute inset-0 bg-cyan-500/10 blur-[60px] rounded-full scale-50 opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
+                        <span className="text-[9px] bg-cyan-400 text-black font-black px-2 py-1 uppercase tracking-tighter">
+                            Most Adopted
+                        </span>
                     )}
                 </div>
 
-                <div className="mb-10 text-center lg:text-left">
-                    <p className="text-white/40 text-sm leading-relaxed font-light mb-8">
+                <div className="mb-12">
+                    <div className="flex items-baseline gap-1">
+                        <span className={`text-6xl md:text-7xl font-bold tracking-tighter transition-colors duration-500 ${isHovered && isPopular ? 'text-cyan-400' : 'text-white'}`}>
+                            {price}
+                        </span>
+                        <span className="text-lg text-white/20 font-playfair-italic">/mo</span>
+                    </div>
+                    <p className="text-white/40 text-sm leading-relaxed font-light mt-6 max-w-[240px]">
                         {description}
                     </p>
-                    <div className="space-y-4">
-                        {features.map((feature, i) => (
-                            <div key={i} className="flex items-center gap-3 group/item">
-                                <Icon icon="ph:check-circle-light" className={`text-sm ${isPopular ? 'text-cyan-500/50' : 'text-white/20'}`} />
-                                <span className="text-[11px] text-white/30 group-hover/item:text-white/60 transition-colors uppercase tracking-wider">{feature}</span>
-                            </div>
-                        ))}
-                    </div>
                 </div>
 
-                <div className="mt-auto pt-8 flex justify-end">
+                <div className="space-y-5 mb-14 flex-grow">
+                    {features.map((feature, i) => (
+                        <div key={i} className="flex items-center gap-4 group/item">
+                            <div className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${isPopular ? 'bg-cyan-500 shadow-[0_0_8px_rgba(34,211,238,0.5)]' : 'bg-white/10 group-hover/item:bg-white/40'}`} />
+                            <span className="text-xs text-white/30 group-hover/item:text-white/70 transition-colors tracking-wide font-light">{feature}</span>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-auto">
                     <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className={`w-12 h-12 flex items-center justify-center transition-all duration-300
-                        ${isPopular ? 'bg-cyan-400 text-black shadow-[0_0_20px_rgba(34,211,238,0.3)]' : 'bg-white/5 text-white/40 border border-white/10 hover:border-white/20 hover:text-white'}`}
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className={`w-full py-5 flex items-center justify-center gap-3 text-[10px] uppercase font-black tracking-[0.2em] transition-all duration-300
+                        ${isPopular
+                                ? 'bg-cyan-400 text-black shadow-[0_0_30px_rgba(34,211,238,0.2)] hover:shadow-cyan-400/40'
+                                : 'bg-white/5 text-white/80 border border-white/10 hover:bg-white/10 hover:text-white hover:border-white/20'}`}
                     >
-                        <Icon icon="ph:arrow-up-right-bold" className="text-xl" />
+                        {isPopular ? 'Synthesize Now' : 'Initialize Access'}
+                        <Icon icon="ph:arrow-right-bold" className="text-sm" />
                     </motion.button>
                 </div>
             </div>
@@ -110,31 +109,79 @@ const PricingCard = ({
     );
 };
 
+
+const PixelGrid = () => {
+    return (
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ opacity: 0.4 }}>
+            <div
+                className="absolute inset-0"
+                style={{
+                    backgroundImage: `radial-gradient(circle at center, #22d3ee 0.5px, transparent 0.5px)`,
+                    backgroundSize: '24px 24px',
+                }}
+            />
+            <motion.div
+                className="absolute inset-0 bg-black"
+                style={{
+                    maskImage: 'radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), transparent 0%, black 100%)',
+                    WebkitMaskImage: 'radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), transparent 0%, black 100%)',
+                }}
+            />
+            <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    backgroundImage: `linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)`,
+                    backgroundSize: '4px 4px',
+                    opacity: 0.8
+                }}
+            />
+        </div>
+    );
+};
+
 const PricingSection = () => {
     const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
+    const sectionRef = React.useRef<HTMLElement>(null);
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if (!sectionRef.current) return;
+        const rect = sectionRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        sectionRef.current.style.setProperty('--mouse-x', `${x}px`);
+        sectionRef.current.style.setProperty('--mouse-y', `${y}px`);
+    };
 
     return (
-        <section className="w-full bg-black py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <div className="max-w-7xl mx-auto">
+        <section
+            id="pricing"
+            ref={sectionRef}
+            onMouseMove={handleMouseMove}
+            className="w-full bg-black py-40 px-4 sm:px-6 lg:px-8 overflow-hidden relative"
+        >
+            <PixelGrid />
+
+            <div className="max-w-7xl mx-auto relative z-10">
 
                 {/* Header */}
-                <div className="text-center mb-20">
+                <div className="text-center mb-24">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-6xl font-semibold text-white tracking-tight mb-6"
+                        className="text-5xl md:text-7xl text-white tracking-tight mb-8"
                     >
-                        Simple, transparent pricing
+                        Pricing
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/40 text-lg md:text-xl font-light mb-12"
+                        className="text-white/40 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto"
                     >
-                        For studios, startups and solo makers using Kreona Studio.
+                        Flexible plans designed for teams of all sizes.
+                        Start for free and scale as you grow.
                     </motion.p>
 
                     {/* Toggle */}
@@ -143,26 +190,26 @@ const PricingSection = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="inline-flex items-center p-1 bg-[#111] border border-white/5 rounded-full"
+                        className="inline-flex items-center p-1 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full"
                     >
                         <button
                             onClick={() => setBillingCycle('monthly')}
-                            className={`px-6 py-2 rounded-full text-xs font-medium transition-all duration-300 ${billingCycle === 'monthly' ? 'bg-white/10 text-white shadow-xl' : 'text-white/40 hover:text-white'}`}
+                            className={`px-8 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${billingCycle === 'monthly' ? 'bg-white text-black shadow-xl' : 'text-white/40 hover:text-white'}`}
                         >
                             Monthly
                         </button>
                         <button
                             onClick={() => setBillingCycle('yearly')}
-                            className={`px-6 py-2 rounded-full text-xs font-medium transition-all duration-300 flex items-center gap-2 ${billingCycle === 'yearly' ? 'bg-white/10 text-white shadow-xl' : 'text-white/40 hover:text-white'}`}
+                            className={`px-8 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 flex items-center gap-2 ${billingCycle === 'yearly' ? 'bg-white text-black shadow-xl' : 'text-white/40 hover:text-white'}`}
                         >
                             Yearly
-                            <span className="text-[9px] text-cyan-400 border border-cyan-400/20 bg-cyan-400/5 px-1.5 py-0.5 rounded-full">-20%</span>
+                            <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${billingCycle === 'yearly' ? 'bg-black/10 text-black' : 'bg-cyan-500/10 text-cyan-400'}`}>-20%</span>
                         </button>
                     </motion.div>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-0 lg:gap-0 lg:divide-x divide-white/5 border border-white/5 shadow-[0_0_100px_rgba(0,0,0,0.5)]">
+                {/* Cards Container */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <PricingCard
                         title="Light"
                         price={billingCycle === 'monthly' ? '$0' : '$0'}

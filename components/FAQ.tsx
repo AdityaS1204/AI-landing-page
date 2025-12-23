@@ -34,8 +34,8 @@ const FAQ = () => {
                         <div className="w-1 h-1 bg-white/40" />
                         <span className="text-[10px] text-white/40 uppercase tracking-[0.4em] font-bold">Inquiries</span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
-                        Deep <span className="text-white/20 italic font-light">Technical</span> Insights.
+                    <h2 className="text-4xl md:text-5xl text-white tracking-tight leading-tight">
+                        Deep <span className="text-white/20 font-playfair-italic font-light">Technical</span> Insights.
                     </h2>
                 </div>
 

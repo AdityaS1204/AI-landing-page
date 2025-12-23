@@ -122,11 +122,11 @@ const SolutionCard = ({ children, className, color, icon, title, description, de
 
 const SolutionSection = () => {
     return (
-        <section className="w-full bg-black py-24 px-4 sm:px-6 lg:px-8">
+        <section id="solutions" className="w-full bg-black py-24 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-16">
-                    <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-4">
-                        The Architectural <span className="text-white/20 font-light italic">Standard</span>
+                    <h2 className="text-4xl md:text-5xl text-white tracking-tight mb-4">
+                        The Architectural <span className="text-white/20 font-light font-playfair-italic">Standard</span>
                     </h2>
                     <p className="text-white/40 max-w-2xl font-light text-lg">
                         Turn guesswork into precision. Our AI-driven suite ensures your codebase remains scalable, maintainable, and pristine—automatically.

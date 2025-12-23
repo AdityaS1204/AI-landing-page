@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react';
 
 const CollaborativeSection = () => {
     return (
-        <section className="w-full bg-black py-32 px-4 sm:px-6 lg:px-8">
+        <section id="collaborative" className="w-full bg-black py-32 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto space-y-40">
 
                 {/* Feature 1: Live Collaborative Logic */}
@@ -101,8 +101,8 @@ const CollaborativeSection = () => {
                             <div className="w-1 h-1 bg-purple-500" />
                             <span className="text-[10px] text-purple-500/80 font-bold uppercase tracking-widest">Multiplayer Logic</span>
                         </div>
-                        <h3 className="text-3xl lg:text-4xl font-semibold text-white tracking-tight mb-6">
-                            Live Collaborative <span className="text-white/20 italic font-light">Architecture</span>
+                        <h3 className="text-3xl lg:text-4xl text-white tracking-tight mb-6">
+                            Live Collaborative <span className="text-white/20 font-playfair-italic font-light">Architecture</span>
                         </h3>
                         <p className="text-white/40 text-lg font-light leading-relaxed mb-10">
                             Work together on complex state machines and folder structures in real-time.
@@ -203,8 +203,8 @@ const CollaborativeSection = () => {
                             <div className="w-1 h-1 bg-green-500" />
                             <span className="text-[10px] text-green-500/80 font-bold uppercase tracking-widest">Synthesis Engine</span>
                         </div>
-                        <h3 className="text-3xl lg:text-4xl font-semibold text-white tracking-tight mb-6">
-                            Production-Ready <span className="text-white/20 italic font-light">Synthesis</span>
+                        <h3 className="text-3xl lg:text-4xl text-white tracking-tight mb-6">
+                            Production-Ready <span className="text-white/20 font-playfair-italic font-light">Synthesis</span>
                         </h3>
                         <p className="text-white/40 text-lg font-light leading-relaxed mb-10">
                             Beyond standard code generation. Our engine compresses structural logic, bakes state management, and optimizes for RSC performance out of the box.

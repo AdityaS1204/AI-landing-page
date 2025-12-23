@@ -28,10 +28,10 @@ const CTA = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-7xl font-semibold text-white tracking-tight mb-8 leading-[1.05]"
+                    className="text-5xl md:text-7xl text-white tracking-tight mb-8 leading-[1.05]"
                 >
                     Build the architecture <br />
-                    <span className="text-white/20 italic font-light">you've always debated.</span>
+                    <span className="text-white/20 font-playfair-italic font-light">you've always debated.</span>
                 </motion.h2>
 
                 <motion.p

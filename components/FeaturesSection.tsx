@@ -132,7 +132,7 @@ const FeaturesSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="w-full bg-black py-32 px-4 sm:px-6 lg:px-8">
+        <section id="features" className="w-full bg-black py-32 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
 
                 {/* LEFT: BENTO GRID */}
@@ -151,8 +151,8 @@ const FeaturesSection = () => {
                         <span className="text-[10px] text-white/40 uppercase tracking-[0.4em] font-bold">Capabilities</span>
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-16 leading-tight">
-                        full-featured websites.
+                    <h2 className="text-4xl md:text-5xl text-white tracking-tight mb-16 leading-tight">
+                        full-featured <span className="font-playfair-italic text-white/40">websites.</span>
                     </h2>
 
                     <div className="relative space-y-12">
