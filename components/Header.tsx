@@ -27,7 +27,7 @@ const Header = () => {
                             Sign in
                         </a>
                         <a href="#" className="inline-flex items-center gap-2 border-gradient before:rounded-none bg-white/5 px-4 py-2.5 text-[10px] uppercase font-bold tracking-widest hover:bg-white/10 transition font-geist">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="h-4 w-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" stroke-linecap="round" stroke-linejoin="round" className="h-4 w-4">
                                 <path d="m10 17 5-5-5-5" className=""></path>
                                 <path d="M15 12H3" className=""></path>
                                 <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" className=""></path>
